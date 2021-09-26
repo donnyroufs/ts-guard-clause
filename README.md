@@ -38,6 +38,14 @@ Guard.against.undefined(body.name, new MyCustomError('Some Error'))
 
 ---
 
+## Current clauses
+
+- null
+- undefined
+- nullish (null and undefined)
+- nullishOrEmpty (null, undfined, not an empty array)
+- expression (custom condition)
+
 ## Add your own guard clause(s)
 
 First you will need to extend the types:
