@@ -1,5 +1,7 @@
 # ts-guard-clause
 
+> yarn add ts-guard-clause
+
 **Before:**
 
 ```ts
