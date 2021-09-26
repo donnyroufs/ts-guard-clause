@@ -5,7 +5,7 @@
 **Before:**
 
 ```ts
-if (!body.name) {
+if (body.name !== undefined) {
   throw new Error('Name is undefined')
 }
 
@@ -20,9 +20,25 @@ const name = Guard.against.undefined(body.name)
 console.log(name)
 ```
 
+**Shorter version:**
+
+```ts
+const name = Against.undefined(body.name)
+
+console.log(name)
+```
+
+**Add a custom message/error**
+
+```ts
+Guard.against.undefined(body.name, 'Custom Error')
+// OR
+Guard.against.undefined(body.name, new MyCustomError('Some Error'))
+```
+
 ---
 
-## Add Custom Guard Clauses
+## Add your own guard clause(s)
 
 First you will need to extend the types:
 
@@ -37,8 +53,7 @@ declare module 'ts-guard-clause' {
 }
 ```
 
-If everything went well then the AddExtension method will give
-you intellisense for the `hello` clause.
+If everything went well then the AddExtension method will give you intellisense for the `hello` clause.
 
 ```ts
 import { Guard, GuardFactory } from 'ts-guard-clause'
