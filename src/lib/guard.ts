@@ -69,7 +69,7 @@ export class Guard implements IGuardClause {
     return prop!
   }
 
-  static get against() {
+  static get against(): IGuardClause {
     return new Guard()
   }
 

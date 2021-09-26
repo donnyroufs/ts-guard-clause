@@ -1,10 +1,11 @@
 import { GuardClauseException } from '../../src/lib/guard-clause.exception'
 import { Guard } from '../../src/lib/guard'
+import { IGuardClause } from '../../src/lib/guard-clause.interface'
 
 export class CustomError extends Error {}
 
 describe('guard', () => {
-  let sut: Guard
+  let sut: IGuardClause
 
   beforeAll(() => {
     sut = Guard.against
