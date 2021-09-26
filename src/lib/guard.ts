@@ -66,7 +66,7 @@ export class Guard implements IGuardClause {
       this.handleThrow('expression', customError)
     }
 
-    return prop!
+    return prop
   }
 
   static get against(): IGuardClause {

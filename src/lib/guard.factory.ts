@@ -25,7 +25,7 @@ export class GuardFactory {
         }
       }
 
-      return prop!
+      return prop
     }
   }
 }
