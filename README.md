@@ -68,5 +68,5 @@ import { Guard, GuardFactory } from 'ts-guard-clause'
 
 GuardFactory.AddExtension('hello', (prop) => prop === 1)
 
-Guard.against.Hello(1) // Throws
+Guard.against.Hello('hello') // Throws
 ```
