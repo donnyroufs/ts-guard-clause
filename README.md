@@ -48,7 +48,7 @@ Guard.against.undefined(body.name, new MyCustomError('Some Error'))
 
 ## Add your own guard clause(s)
 
-First you will need to extend the types:
+First you will need to extend the **IGuardClause** interface:
 
 ```ts
 // @types/ts-guard-clause/index.d.ts
