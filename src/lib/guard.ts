@@ -3,9 +3,9 @@ import { IGuardClause } from './guard-clause.interface'
 import {
   NonNullish,
   NonUndefined,
-  NonNullable,
   CustomError,
   Predicate,
+  NonNullable,
 } from './types'
 
 export class Guard implements IGuardClause {
@@ -14,18 +14,18 @@ export class Guard implements IGuardClause {
   /**
    * @description makes sure that the given value is not null
    */
-  null<T>(prop: T, customError?: CustomError) {
+  null<T>(prop: T, customError?: CustomError): NonNullable<T> {
     if (prop === null) {
       this.handleThrow('null', customError)
     }
 
-    return prop as NonNullable<T>
+    return prop as unknown as NonNullable<T>
   }
 
   /**
    * @description makes sure that the given value is not undefined
    */
-  undefined<T>(prop: T, customError?: CustomError) {
+  undefined<T>(prop: T, customError?: CustomError): NonUndefined<T> {
     if (prop === undefined || typeof prop === 'undefined') {
       this.handleThrow('undefined', customError)
     }
@@ -36,7 +36,7 @@ export class Guard implements IGuardClause {
   /**
    * @description makes sure that the given value is not null or undefined
    */
-  nullish<T>(prop: T, customError?: CustomError) {
+  nullish<T>(prop: T, customError?: CustomError): NonNullish<T> {
     this.null(prop, customError)
     this.undefined(prop, customError)
 
@@ -46,7 +46,7 @@ export class Guard implements IGuardClause {
   /**
    * @description makes sure that the given value is not null, undefined and not an empty array.
    */
-  nullishOrEmpty<T>(prop: T, customError?: CustomError) {
+  nullishOrEmpty<T>(prop: T, customError?: CustomError): NonNullish<T> {
     if (!Array.isArray(prop)) {
       this.handleThrow('nullishOrEmpty', customError)
     }

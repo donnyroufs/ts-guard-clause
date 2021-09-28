@@ -1,9 +1,15 @@
-import { CustomError, Predicate } from './types'
+import {
+  NonNullish,
+  NonUndefined,
+  CustomError,
+  Predicate,
+  NonNullable,
+} from './types'
 
 export interface IGuardClause {
-  null<T>(prop: T, errorHandler?: CustomError): T
-  undefined<T>(prop: T, errorHandler?: CustomError): T
-  nullish<T>(prop: T, errorHandler?: CustomError): T
-  nullishOrEmpty<T>(prop: T, errorHandler?: CustomError): T
-  expression<T>(prop: T, predicate: Predicate<T>, errorHandler?: CustomError): T
+  null<T>(prop: T, customError?: CustomError): NonNullable<T>
+  undefined<T>(prop: T, customError?: CustomError): NonUndefined<T>
+  nullish<T>(prop: T, customError?: CustomError): NonNullish<T>
+  nullishOrEmpty<T>(prop: T, customError?: CustomError): NonNullish<T>
+  expression<T>(prop: T, predicate: Predicate<T>, customError?: CustomError): T
 }
