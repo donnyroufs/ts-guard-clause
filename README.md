@@ -66,7 +66,7 @@ If everything went well then the AddExtension method will give you intellisense 
 ```ts
 import { Guard, GuardFactory } from 'ts-guard-clause'
 
-GuardFactory.AddExtension('hello', (prop) => prop === 1)
+GuardFactory.AddExtension('hello', (prop) => prop === 'hello')
 
 Guard.against.Hello('hello') // Throws
 ```
